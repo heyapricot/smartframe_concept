@@ -10,9 +10,20 @@ const navbar = (()=>{
     };
     const _initNav = ()=>{
         let nav = document.createElement('nav');
-        _setCss(nav, ["navbar", "navbar-expand-lg", "navbar-light", "bg-light"]);
-        let linkContainer = document.createElement('div');
-        nav.appendChild(linkContainer);
+        _setCss(nav, ["navbar", "navbar-expand-lg", "navbar-light", "bg-light", "justify-content-center"]);
+        let containers = ((size, parentNode)=>{
+            let containerArray = [];
+            for(let i = 0; i < size; i++){
+                let container = document.createElement('div');
+                _setCss(container, ['mx-2']);
+                containerArray.push(container);
+                parentNode.appendChild(container);
+            }
+            return containerArray;
+        })(3, nav);
+        let linkContainer = containers[1];
+        let buttonContainer = containers[2];
+
         const links = ((linkTextArray, parentNode) => {
             let unorderedList = document.createElement('ul');
             _setCss(unorderedList,["navbar-nav"]);
@@ -31,6 +42,17 @@ const navbar = (()=>{
             });
             parentNode.appendChild(unorderedList);
         })(["Home", "Products", "Applications", "Features", "Technology", "Company"],linkContainer);
+
+        const buttons = ((buttonTextArray, parentNode)=>{
+            let buttonClasses = ["btn-primary", "btn-outline-primary"];
+            for(let i = 0; i < buttonTextArray.length; i++){
+                let button = document.createElement('button');
+                _setCss(button, ['btn', buttonClasses[i % buttonClasses.length], 'mx-2']);
+                button.textContent = buttonTextArray[i];
+                parentNode.appendChild(button);
+            }
+        })(["Request Demo", "Login"], buttonContainer);
+
         return nav;
     };
     const render = ()=>{
