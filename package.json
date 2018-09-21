@@ -1,0 +1,21 @@
+{
+  "name": "smartframe_concept_tabbed_navigation",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:heyalvaro/smartframe_concept.git"
+  },
+  "author": "Alvaro Sanchez Diaz",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.0"
+  }
+}
