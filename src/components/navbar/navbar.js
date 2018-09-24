@@ -1,21 +1,18 @@
+const {setCss} = require('../helpers/css');
 const navbar = (()=>{
     const _initContainer = ()=>{
         let navContainer = document.createElement('div');
         navContainer.classList.toggle('container');
         return navContainer;
     };
-    const _setCss = (node, cssClassArray)=>{
-        cssClassArray.forEach((cssClass)=>{ node.classList.toggle(cssClass) });
-        return node
-    };
     const _initNav = ()=>{
         let nav = document.createElement('nav');
-        _setCss(nav, ["navbar", "navbar-expand-lg", "navbar-light", "bg-light", "justify-content-center"]);
+        setCss(nav, ["navbar", "navbar-expand-lg", "navbar-light", "bg-light", "justify-content-center"]);
         let containers = ((size, parentNode)=>{
             let containerArray = [];
             for(let i = 0; i < size; i++){
                 let container = document.createElement('div');
-                _setCss(container, ['mx-2']);
+                setCss(container, ['mx-2']);
                 containerArray.push(container);
                 parentNode.appendChild(container);
             }
@@ -26,7 +23,7 @@ const navbar = (()=>{
         let buttonContainer = containers[2];
         const logo = ((parentNode)=>{
             let hyperlink = document.createElement('a');
-            _setCss(hyperlink, ['navbar-brand']);
+            setCss(hyperlink, ['navbar-brand']);
             hyperlink.href = '#';
             let logo = ((width, height, source)=>{
                 let image = new Image(width,height);
@@ -38,15 +35,15 @@ const navbar = (()=>{
         })(logoContainer);
         const links = ((linkTextArray, parentNode) => {
             let unorderedList = document.createElement('ul');
-            _setCss(unorderedList,["navbar-nav"]);
+            setCss(unorderedList,["navbar-nav"]);
             let listElementArray = [];
             linkTextArray.forEach((linkText) => {
                 let listElement = document.createElement('li');
-                _setCss(listElement, ["nav-item"]);
+                setCss(listElement, ["nav-item"]);
                 listElementArray.push(listElement);
                 let hyperlink = document.createElement('a');
                 hyperlink.href = '#';
-                _setCss(hyperlink, ["nav-link"]);
+                setCss(hyperlink, ["nav-link"]);
                 hyperlink.textContent = linkText;
                 listElement.appendChild(hyperlink);
                 unorderedList.appendChild(listElement);
@@ -59,7 +56,7 @@ const navbar = (()=>{
             let buttonClasses = ["btn-primary", "btn-outline-primary"];
             for(let i = 0; i < buttonTextArray.length; i++){
                 let button = document.createElement('button');
-                _setCss(button, ['btn', buttonClasses[i % buttonClasses.length], 'mx-2']);
+                setCss(button, ['btn', buttonClasses[i % buttonClasses.length], 'mx-2']);
                 button.textContent = buttonTextArray[i];
                 parentNode.appendChild(button);
             }
