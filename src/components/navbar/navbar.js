@@ -21,9 +21,21 @@ const navbar = (()=>{
             }
             return containerArray;
         })(3, nav);
+        let logoContainer = containers[0];
         let linkContainer = containers[1];
         let buttonContainer = containers[2];
-
+        const logo = ((parentNode)=>{
+            let hyperlink = document.createElement('a');
+            _setCss(hyperlink, ['navbar-brand']);
+            hyperlink.href = '#';
+            let logo = ((width, height, source)=>{
+                let image = new Image(width,height);
+                image.src = source;
+                return image;
+            })(272, 29, '../images/smartframe_logo.jpg');
+            hyperlink.appendChild(logo);
+            parentNode.appendChild(hyperlink);
+        })(logoContainer);
         const links = ((linkTextArray, parentNode) => {
             let unorderedList = document.createElement('ul');
             _setCss(unorderedList,["navbar-nav"]);
