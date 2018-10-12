@@ -1,6 +1,6 @@
 const {setCss} = require('../helpers/css');
 const bootstrapComponents = (()=>{
-    const createComponent = (type, cssClasses, parentNode = NaN)=>{
+    const createComponent = (type, cssClasses = [], parentNode = NaN)=>{
         let node = document.createElement('div');
         setCss(node, [type, ...cssClasses]);
         if(!Number.isNaN(parentNode)){
