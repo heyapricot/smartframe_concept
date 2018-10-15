@@ -6,6 +6,7 @@ const featuresSection = (()=>{
         const node = bootstrap.createComponent('container',[],parentNode);
         const row = bootstrap.createComponent('row',[],node.node);
         const col = bootstrap.createComponent('col',[],row.node);
+
         return {node,row,col}
     })(node);
     const init = (()=>{

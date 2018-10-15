@@ -1,7 +1,7 @@
 const {bootstrapComponents:bootstrap} = require('../../../bootstrapComponents/bootstrapComponents');
 const tabText = ['control suite', 'tracker', 'showcase', 'monetizer'];
 const tabBar = ((tabText)=>{
-    const node = bootstrap.createComponent('container').node;
+    const node = bootstrap.createComponent('container',['d-flex','justify-content-center']).node;
 
     const init = ((mainNode)=>{
 
