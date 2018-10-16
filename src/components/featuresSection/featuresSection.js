@@ -46,7 +46,7 @@ const featuresSection = (()=>{
 
             tabButtons.forEach((button,index)=>{
                let closure = ()=>{
-                   tabRender(index);
+                   tabRender(index,grid.rows[1].columns[0].node);
                };
                button.addEventListener('click',closure);
             });

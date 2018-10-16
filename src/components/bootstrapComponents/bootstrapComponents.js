@@ -16,7 +16,7 @@ const bootstrapComponents = (()=>{
             let titleNode = document.createElement('h5');
             parentNode.appendChild(titleNode);
             ['card-title'].forEach((cssClass)=>{titleNode.classList.toggle(cssClass)});
-            titleNode.text = titleText;
+            titleNode.textContent = titleText;
             return titleNode;
         })(titleText, body.node);
         return {node,title}
