@@ -5,7 +5,7 @@ const cardDeck = (cardTitles, columnQuantity) => {
     const rows = ((cardTitles, rowQuantity, parentNode)=>{
         const rowArray = [];
         for (let i = 0; i < rowQuantity; i++){
-            let row = bootstrap.Row(1,[],parentNode);
+            let row = bootstrap.Row(1,['mb-3'],parentNode);
             let deck = bootstrap.createComponent('card-deck',[],row.columns[0].node);
             rowArray.push(deck);
         }
