@@ -17,7 +17,7 @@ const cardDeck = (cardTitles, columnQuantity) => {
         let contentLength = cardTitles.length;
         for(let i = 0; i < cardQuantity; i++){
             let card = NaN;
-            i < contentLength ? card = bootstrap.Card(cardTitles[i]) : card = bootstrap.Card('');
+            i < contentLength ? card = bootstrap.Card(cardTitles[i]) : card = bootstrap.Card('', ['border-0']);
             cardArray.push(card);
         }
         return cardArray;
