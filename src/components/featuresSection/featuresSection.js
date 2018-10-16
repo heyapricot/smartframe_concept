@@ -8,7 +8,7 @@ const featuresSection = (()=>{
         const rows = ((rowQuantity)=>{
             const rowArray = [];
             for(let i = 0; i < rowQuantity; i++){
-                rowArray.push(bootstrap.Row(1,[],node.node));
+                rowArray.push(bootstrap.Row(1,['mb-3'],node.node));
             }
             return rowArray;
         })(2);
