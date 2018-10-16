@@ -29,14 +29,14 @@ const featuresSection = (()=>{
         const setupTabBar = ((cardTitles)=>{
             let tabButtons = tabBar.buttons;
 
-            const cardDecks = ((cardTitles)=>{
+            const cardDecks = ((cardTitles, columnQuantity)=>{
                 let decks = [];
                 cardTitles.forEach((titleArray)=>{
-                    let deck = Deck(titleArray);
+                    let deck = Deck(titleArray,columnQuantity);
                     decks.push(deck);
                 });
                 return decks
-            })(cardTitles);
+            })(cardTitles,3);
 
             const tabRender = (index, parentNode)=>{
                 console.log(`Index ${index} was passed`);

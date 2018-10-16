@@ -1,6 +1,9 @@
 const {bootstrapComponents:bootstrap} = require('../../../bootstrapComponents/bootstrapComponents');
-const cardDeck = (cardTitles) => {
+const cardDeck = (cardTitles, columnQuantity) => {
     const node = bootstrap.createComponent('card-deck').node;
+    const rows = ((cardTitles)=>{
+        const rowQuantity = Math.ceil(cardTitles.length / columnQuantity);
+    })(cardTitles, columnQuantity);
     let cards = ((cardTitles, parentNode)=>{
         let cardArray = [];
         cardTitles.forEach((title)=>{
