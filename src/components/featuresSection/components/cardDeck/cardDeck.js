@@ -6,7 +6,7 @@ const cardDeck = (cardArray, columnQuantity) => {
         let cardsWithFillers = [...cardArray];
         if (cardArray.length % columnQuantity !== 0){
             for(let i = 0; i < columnQuantity - (cardArray.length % columnQuantity); i++){
-                cardsWithFillers.push(bootstrap.Card('',['border-0']));
+                cardsWithFillers.push(bootstrap.Card(['border-0']));
                 console.log(cardsWithFillers);
             }
         }

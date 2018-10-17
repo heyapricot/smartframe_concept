@@ -9,7 +9,7 @@ const bootstrapComponents = (()=>{
         return {node};
     };
 
-    const Card = (titleText = '', cssClassArray = []) => {
+    const Card = (cssClassArray = [], titleText = '', contentText = '') => {
         let node = createComponent('card',cssClassArray).node;
         let body = createComponent('card-body',[],node);
         const title = ((titleText, parentNode)=>{
@@ -19,6 +19,15 @@ const bootstrapComponents = (()=>{
             titleNode.textContent = titleText;
             return titleNode;
         })(titleText, body.node);
+
+        const content = ((contentText,parentNode)=>{
+            let node = document.createElement('p');
+            parentNode.appendChild(node);
+            ['card-text'].forEach((cssClass)=>{node.classList.toggle(cssClass)});
+            node.textContent = contentText;
+            return node;
+        })(contentText,body.node);
+
         return {node,title}
     };
 

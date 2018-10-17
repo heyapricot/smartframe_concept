@@ -21,10 +21,10 @@ const featuresSection = (()=>{
 
         ]},
         {"cards":[
-            {"title":"embedding & sharing metrics","content":"", "imageLink":"", "bottomLink":""},
-            {"title":"viewing & traffic meters","content":"", "imageLink":"", "bottomLink":""},
-            {"title":"security metrics","content":"", "imageLink":"", "bottomLink":""},
-            {"title":"content syndication control","content":"", "imageLink":"", "bottomLink":""}
+            {"title":"embedding & sharing metrics","content":"SmartFrame's Embedding and Sharing Metrics let you see where your images are being displayed around the web and on social networks.", "imageLink":"", "bottomLink":""},
+            {"title":"viewing & traffic meters","content":"Viewing and Traffic Metrics let you find your most popular and engaging images, and see which are delivering the most traffic and from which sources.", "imageLink":"", "bottomLink":""},
+            {"title":"security metrics","content":"Our Security Metrics will let you know how and where people are trying to download or steal your images.", "imageLink":"", "bottomLink":""},
+            {"title":"content syndication control","content":"Syndicate with confidence, safe in the knowledge that you can withdraw or replace SmartFrame images at any time. You can even block or greenlight specific countries, websites and IP adresses.", "imageLink":"", "bottomLink":""}
         ]}
     ]};
 
@@ -32,7 +32,7 @@ const featuresSection = (()=>{
         let mainObject = {"sections":[]};
         cardContent.sections.forEach((section)=>{
             let cardsHolder = {"cards":[]};
-            section.cards.forEach((card)=>{ cardsHolder.cards.push(bootstrap.Card(card.title,['border-0'])) });
+            section.cards.forEach((card)=>{ cardsHolder.cards.push(bootstrap.Card(['border-0'],card.title,card.content)) });
             mainObject.sections.push(cardsHolder);
         });
         return mainObject;
