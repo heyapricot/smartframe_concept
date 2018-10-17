@@ -34,7 +34,7 @@ const bootstrapComponents = (()=>{
         })(1);
         let addColumns = (quantity)=>{
             for(let i = 0; i < quantity; i++){
-                columnArray.push(createComponent('col',[],node));
+git checko                columnArray.push(createComponent('col',[],node));
             }
         };
         return {columns,cssClasses, node}

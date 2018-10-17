@@ -15,6 +15,25 @@ const featuresSection = (()=>{
 
         return {node,rows}
     })(node);
+
+    let cardContent = {"sections":[
+        {"cards":[
+
+        ]},
+        {"cards":[
+            {"title":"embedding & sharing metrics","content":"", "imageLink":"", "bottomLink":""},
+            {"title":"viewing & traffic meters","content":"", "imageLink":"", "bottomLink":""},
+            {"title":"security metrics","content":"", "imageLink":"", "bottomLink":""},
+            {"title":"content syndication control","content":"", "imageLink":"", "bottomLink":""}
+        ]}
+    ]};
+
+    const cards = ((cardContent)=>{
+        cardContent.sections.forEach((section)=>{
+            section.cards.forEach((card)=>{ card.object = bootstrap.Card(card.title) });
+        });
+    })(cardContent);
+
     const init = (()=>{
         const setupNode = ((node)=>{
             node.id = 'features';
