@@ -2,7 +2,7 @@ const {bootstrapComponents:bootstrap} = require('../../../bootstrapComponents/bo
 const cardDeck = (cardTitles, columnQuantity) => {
     const node = bootstrap.createComponent('container').node;
     const rowQuantity = Math.ceil(cardTitles.length / columnQuantity);
-    const rows = ((cardTitles, rowQuantity, parentNode)=>{
+    const rows = ((rowQuantity, parentNode)=>{
         const rowArray = [];
         for (let i = 0; i < rowQuantity; i++){
             let row = bootstrap.Row(1,['mb-3'],parentNode);
@@ -10,7 +10,7 @@ const cardDeck = (cardTitles, columnQuantity) => {
             rowArray.push(deck);
         }
         return rowArray;
-    })(cardTitles, rowQuantity, node);
+    })(rowQuantity, node);
 
     let cards = ((cardTitles, cardQuantity)=>{
         let cardArray = [];
