@@ -26,32 +26,31 @@ const featuresSection = (()=>{
 
         const cardTitles = [[],['embedding & sharing metrics', 'viewing & traffic meters', 'security metrics', 'content syndication control'],[],[]];
 
-        const setupTabBar = ((cardTitles)=>{
+        const cardDecks = ((cardTitles, columnQuantity)=>{
+            let decks = [];
+            cardTitles.forEach((titleArray)=>{
+                let deck = Deck(titleArray,columnQuantity);
+                decks.push(deck);
+            });
+            return decks
+        })(cardTitles,3);
+
+        const tabRender = (index, parentNode)=>{
+            console.log(`Index ${index} was passed`);
+            console.log(cardDecks[index]);
+            parentNode.appendChild(cardDecks[index].node)
+        };
+
+        const setupTabBar = (()=>{
             let tabButtons = tabBar.buttons;
-
-            const cardDecks = ((cardTitles, columnQuantity)=>{
-                let decks = [];
-                cardTitles.forEach((titleArray)=>{
-                    let deck = Deck(titleArray,columnQuantity);
-                    decks.push(deck);
-                });
-                return decks
-            })(cardTitles,3);
-
-            const tabRender = (index, parentNode)=>{
-                console.log(`Index ${index} was passed`);
-                console.log(cardDecks[index]);
-                parentNode.appendChild(cardDecks[index].node)
-            };
-
             tabButtons.forEach((button,index)=>{
                let closure = ()=>{
                    tabRender(index,grid.rows[1].columns[0].node);
                };
                button.addEventListener('click',closure);
             });
+        })();
 
-        })(cardTitles);
     })();
     return {node};
 })();
