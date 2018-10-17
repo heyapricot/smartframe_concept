@@ -9,26 +9,35 @@ const bootstrapComponents = (()=>{
         return {node};
     };
 
-    const Card = (cssClassArray = [], titleText = '', contentText = '') => {
+    const Card = (cssClassArray = [], titleText = '', contentText = '', imgSrc = '') => {
         let node = createComponent('card',cssClassArray).node;
-        let body = createComponent('card-body',[],node);
-        const title = ((titleText, parentNode)=>{
+        let body = {
+            "node": createComponent('card-body',[],node).node,
+        };
+
+        body.title = ((titleText, parentNode)=>{
             let titleNode = document.createElement('h5');
             parentNode.appendChild(titleNode);
             ['card-title'].forEach((cssClass)=>{titleNode.classList.toggle(cssClass)});
             titleNode.textContent = titleText;
             return titleNode;
         })(titleText, body.node);
-
-        const content = ((contentText,parentNode)=>{
+        body.content = ((contentText,parentNode)=>{
             let node = document.createElement('p');
             parentNode.appendChild(node);
             ['card-text'].forEach((cssClass)=>{node.classList.toggle(cssClass)});
             node.textContent = contentText;
             return node;
         })(contentText,body.node);
+        body.img = ((imgSrc, parentNode)=>{
+            let node = document.createElement('img');
+            parentNode.appendChild(node);
+            ['img-fluid'].forEach((cssClass)=>{node.classList.toggle(cssClass)});
+            node.src = imgSrc;
+            return node;
+        })(imgSrc,body.node);
 
-        return {node,title}
+        return {node,body}
     };
 
     const Row = (columnQuantity, cssClassArray = [], parentNode = NaN) => {
