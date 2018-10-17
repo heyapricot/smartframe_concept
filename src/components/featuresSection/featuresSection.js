@@ -29,9 +29,13 @@ const featuresSection = (()=>{
     ]};
 
     const cards = ((cardContent)=>{
+        let mainObject = {"sections":[]};
         cardContent.sections.forEach((section)=>{
-            section.cards.forEach((card)=>{ card.object = bootstrap.Card(card.title) });
+            let cardsHolder = {"cards":[]};
+            section.cards.forEach((card)=>{ cardsHolder.cards.push(bootstrap.Card(card.title)) });
+            mainObject.sections.push(cardsHolder);
         });
+        return mainObject;
     })(cardContent);
 
     const init = (()=>{
