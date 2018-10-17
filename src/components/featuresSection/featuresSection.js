@@ -32,7 +32,7 @@ const featuresSection = (()=>{
         let mainObject = {"sections":[]};
         cardContent.sections.forEach((section)=>{
             let cardsHolder = {"cards":[]};
-            section.cards.forEach((card)=>{ cardsHolder.cards.push(bootstrap.Card(card.title)) });
+            section.cards.forEach((card)=>{ cardsHolder.cards.push(bootstrap.Card(card.title,['border-0'])) });
             mainObject.sections.push(cardsHolder);
         });
         return mainObject;

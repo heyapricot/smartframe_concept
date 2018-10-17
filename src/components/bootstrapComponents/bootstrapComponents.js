@@ -9,7 +9,7 @@ const bootstrapComponents = (()=>{
         return {node};
     };
 
-    const Card = (titleText, cssClassArray = []) => {
+    const Card = (titleText = '', cssClassArray = []) => {
         let node = createComponent('card',cssClassArray).node;
         let body = createComponent('card-body',[],node);
         const title = ((titleText, parentNode)=>{

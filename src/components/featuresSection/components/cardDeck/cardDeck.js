@@ -1,7 +1,17 @@
 const {bootstrapComponents:bootstrap} = require('../../../bootstrapComponents/bootstrapComponents');
-const cardDeck = (cards, columnQuantity) => {
+const cardDeck = (cardArray, columnQuantity) => {
     const node = bootstrap.createComponent('container').node;
-    const rowQuantity = Math.ceil(cards.length / columnQuantity);
+    const rowQuantity = Math.ceil(cardArray.length / columnQuantity);
+    const cards = ((cardArray)=>{
+        let cardsWithFillers = [...cardArray];
+        if (cardArray.length % columnQuantity !== 0){
+            for(let i = 0; i < columnQuantity - (cardArray.length % columnQuantity); i++){
+                cardsWithFillers.push(bootstrap.Card('',['border-0']));
+                console.log(cardsWithFillers);
+            }
+        }
+        return cardsWithFillers;
+    })(cardArray);
     const rows = ((rowQuantity, parentNode)=>{
         const rowArray = [];
         for (let i = 0; i < rowQuantity; i++){
