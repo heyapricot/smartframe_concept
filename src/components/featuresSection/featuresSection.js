@@ -18,7 +18,7 @@ const featuresSection = (()=>{
 
     let cardContent = {"sections":[
         {"cards":[
-
+                {"title":"amazon web service SmartFrame hosting","content":"Our Content Delivery Network (CDN) delivers SmartFrame images to viewer at high speed and with low latency.", "imageLink":"../images/embed.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
         ]},
         {"cards":[
             {"title":"embedding & sharing metrics","content":"SmartFrame's Embedding and Sharing Metrics let you see where your images are being displayed around the web and on social networks.", "imageLink":"../images/embed.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
@@ -68,17 +68,19 @@ const featuresSection = (()=>{
             grid.rows[0].columns[0].node.appendChild(tabBar.node);
         })(grid);
 
-        const tabRender = (index, parentNode)=>{
-            console.log(`Index ${index} was passed`);
-            console.log(cardDecks[index]);
-            parentNode.appendChild(cardDecks[index].node)
+        const tabRender = (index, parentNode, currentDeckNode)=>{
+            let newDeckNode = cardDecks[index].node;
+            parentNode.replaceChild(newDeckNode,currentDeckNode);
+            return newDeckNode;
         };
 
         const setupTabBar = (()=>{
             let tabButtons = tabBar.buttons;
+            let currentDeckNode = cardDecks[0].node;
+            grid.rows[1].columns[0].node.appendChild(currentDeckNode);
             tabButtons.forEach((button,index)=>{
                let closure = ()=>{
-                   tabRender(index,grid.rows[1].columns[0].node);
+                   currentDeckNode = tabRender(index,grid.rows[1].columns[0].node, currentDeckNode);
                };
                button.addEventListener('click',closure);
             });
