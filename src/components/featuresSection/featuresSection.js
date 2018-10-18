@@ -55,6 +55,7 @@ const featuresSection = (()=>{
                     })(['fas', 'fa-check-circle']);
                     bootstrapCard.body.node.insertBefore(icon,bootstrapCard.body.title);
                     bootstrapCard.body.bottomLinks.links.forEach((linkNode)=>{linkNode.classList.toggle(cssClassArray[1])});
+                    bootstrapCard.body.content.classList.toggle('text-muted');
                     return bootstrapCard
                 })(cssClasses);
                 return card
