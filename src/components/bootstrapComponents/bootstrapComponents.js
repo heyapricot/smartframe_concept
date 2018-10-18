@@ -11,31 +11,35 @@ const bootstrapComponents = (()=>{
 
     const Card = (cssClassArray = [], titleText = '', contentText = '', imgSrc = '') => {
         let node = createComponent('card',cssClassArray).node;
-        let body = {
-            "node": createComponent('card-body',[],node).node,
-        };
+        let body = ((titleText, contentText, imgSrc, parentNode)=>{
+            let node = createComponent('card-body',[],parentNode).node;
 
-        body.title = ((titleText, parentNode)=>{
-            let titleNode = document.createElement('h5');
-            parentNode.appendChild(titleNode);
-            ['card-title'].forEach((cssClass)=>{titleNode.classList.toggle(cssClass)});
-            titleNode.textContent = titleText;
-            return titleNode;
-        })(titleText, body.node);
-        body.content = ((contentText,parentNode)=>{
-            let node = document.createElement('p');
-            parentNode.appendChild(node);
-            ['card-text'].forEach((cssClass)=>{node.classList.toggle(cssClass)});
-            node.textContent = contentText;
-            return node;
-        })(contentText,body.node);
-        body.img = ((imgSrc, parentNode)=>{
-            let node = document.createElement('img');
-            parentNode.appendChild(node);
-            ['img-fluid'].forEach((cssClass)=>{node.classList.toggle(cssClass)});
-            node.src = imgSrc;
-            return node;
-        })(imgSrc,body.node);
+            let title = ((titleText, parentNode)=>{
+                let node = document.createElement('h5');
+                parentNode.appendChild(node);
+                ['card-title'].forEach((cssClass)=>{node.classList.toggle(cssClass)});
+                node.textContent = titleText;
+                return node;
+            })(titleText, node);
+
+            let content = ((contentText,parentNode)=>{
+                let node = document.createElement('p');
+                parentNode.appendChild(node);
+                ['card-text'].forEach((cssClass)=>{node.classList.toggle(cssClass)});
+                node.textContent = contentText;
+                return node;
+            })(contentText,node);
+
+            let img = ((imgSrc, parentNode)=>{
+                let node = document.createElement('img');
+                parentNode.appendChild(node);
+                ['img-fluid'].forEach((cssClass)=>{node.classList.toggle(cssClass)});
+                node.src = imgSrc;
+                return node;
+            })(imgSrc,node);
+
+            return {content, img, node, title}
+        })(titleText,contentText,imgSrc, node);
 
         return {node,body}
     };
