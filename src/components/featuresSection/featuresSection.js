@@ -18,8 +18,13 @@ const featuresSection = (()=>{
 
     let cardContent = {"sections":[
         {"cards":[
-                {"title":"amazon web service SmartFrame hosting","content":"Our Content Delivery Network (CDN) delivers SmartFrame images to viewer at high speed and with low latency.", "imageLink":"../images/embed.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
-        ]},
+                {"title":"amazon web service SmartFrame hosting","content":"Our Content Delivery Network (CDN) delivers SmartFrame images to viewer at high speed and with low latency.", "imageLink":"../images/aws.jpg", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+                {"title":"content delivery network","content":"Our Content Delivery Network (CDN) delivers SmartFrame images to viewer at high speed and with low latency.", "imageLink":"../images/cdn.jpg", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+                {"title":"SmartFrame admin panel","content":"The Panel is the heart of SmartFrame. Add, replace or remove images, update metadata, adjust your display profiles and configure your search engine and social media settings all in one place.", "imageLink":"../images/admin_panel.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+                {"title":"API access","content":"Add, remove or update your SmartFrame images using our API tools.", "imageLink":"../images/api.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+                {"title":"pixel perfect images & retina screen support","content":"SmartFrame tecjnology automatically detects the size and resolution capabilty of the viewers device and serves the most appropriate image accordingly.", "imageLink":"../images/pixel_perfect.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+                {"title":"dynamic image resizing","content":"As browser windows are resized SmartFrame automatically recalculates and displays the most appropriate version of the image, ensuring the results are pixel perfect everytime.", "imageLink":"../images/resize.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+            ]},
         {"cards":[
             {"title":"embedding & sharing metrics","content":"SmartFrame's Embedding and Sharing Metrics let you see where your images are being displayed around the web and on social networks.", "imageLink":"../images/embed.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
             {"title":"viewing & traffic meters","content":"Viewing and Traffic Metrics let you find your most popular and engaging images, and see which are delivering the most traffic and from which sources.", "imageLink":"../images/tracking.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
