@@ -12,7 +12,7 @@ const bootstrapComponents = (()=>{
     const Card = (cssClassArray = [], titleText = '', contentText = '', imgSrc = '', linkArray = []) => {
         let node = createComponent('card',cssClassArray).node;
         let body = ((titleText, contentText, imgSrc, parentNode)=>{
-            let node = createComponent('card-body',[],parentNode).node;
+            let node = createComponent('card-body',['text-center'],parentNode).node;
 
             let title = ((titleText, parentNode)=>{
                 let node = document.createElement('h5');
