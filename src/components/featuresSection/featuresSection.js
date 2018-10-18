@@ -39,6 +39,14 @@ const featuresSection = (()=>{
             {"title":"live image views","content":"Our Content Delivery Network (CDN) delivers SmartFrame images to viewer at high speed and with low latency.", "imageLink":"../images/live1.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
             {"title":"live image views","content":"Our Content Delivery Network (CDN) delivers SmartFrame images to viewer at high speed and with low latency.", "imageLink":"../images/live2.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
         ]},
+        {"cards":[
+            {"title":"direct link to website or product page","content":"Create a direct link from your SmartFrame - wherever it sits - straight to your website or to a specific product page for one-click purchase.", "imageLink":"../images/product_page.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+            {"title":"access e-Marketing data","content":"Find out who has been sharing your SmartFrames and which of their images they have been sharing with access to collated 'opted-in' email addresses.", "imageLink":"../images/e-marketing.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+            {"title":"in-Image advertising","content":"Create your own targeted advertising campaigns and update them dynamically and retrospectively wherever your content is featured.", "imageLink":"../images/advertising.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+            {"title":"image sponsorship placement","content":"Create a direct link from your SmartFrame - wherever it sits - straight to your website or to a specific product page for one-click purchase.", "imageLink":"../images/sponsorship.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+            {"title":"prompts & scarcity alerts","content":"Trigger timed and relevant prompts or alerts to drive your audience towards your desired outcomes or specific actions.", "imageLink":"../images/scarcity.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+            {"title":"linkable hotspots","content":"Highlight specific elements within your images, tag and link them directly to expanded content, web pages, videos or e-commerce stores.", "imageLink":"../images/hotspots.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+        ]},
     ]};
 
     const sections = ((cardContent)=>{
