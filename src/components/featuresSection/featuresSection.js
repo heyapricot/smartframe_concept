@@ -18,19 +18,27 @@ const featuresSection = (()=>{
 
     let cardContent = {"sections":[
         {"cards":[
-                {"title":"amazon web service SmartFrame hosting","content":"Our Content Delivery Network (CDN) delivers SmartFrame images to viewer at high speed and with low latency.", "imageLink":"../images/aws.jpg", "bottomLink": [{"text":"Get it now", "path": "#"}]},
-                {"title":"content delivery network","content":"Our Content Delivery Network (CDN) delivers SmartFrame images to viewer at high speed and with low latency.", "imageLink":"../images/cdn.jpg", "bottomLink": [{"text":"Get it now", "path": "#"}]},
-                {"title":"SmartFrame admin panel","content":"The Panel is the heart of SmartFrame. Add, replace or remove images, update metadata, adjust your display profiles and configure your search engine and social media settings all in one place.", "imageLink":"../images/admin_panel.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
-                {"title":"API access","content":"Add, remove or update your SmartFrame images using our API tools.", "imageLink":"../images/api.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
-                {"title":"pixel perfect images & retina screen support","content":"SmartFrame tecjnology automatically detects the size and resolution capabilty of the viewers device and serves the most appropriate image accordingly.", "imageLink":"../images/pixel_perfect.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
-                {"title":"dynamic image resizing","content":"As browser windows are resized SmartFrame automatically recalculates and displays the most appropriate version of the image, ensuring the results are pixel perfect everytime.", "imageLink":"../images/resize.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
-            ]},
+            {"title":"amazon web service SmartFrame hosting","content":"Our Content Delivery Network (CDN) delivers SmartFrame images to viewer at high speed and with low latency.", "imageLink":"../images/aws.jpg", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+            {"title":"content delivery network","content":"Our Content Delivery Network (CDN) delivers SmartFrame images to viewer at high speed and with low latency.", "imageLink":"../images/cdn.jpg", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+            {"title":"SmartFrame admin panel","content":"The Panel is the heart of SmartFrame. Add, replace or remove images, update metadata, adjust your display profiles and configure your search engine and social media settings all in one place.", "imageLink":"../images/admin_panel.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+            {"title":"API access","content":"Add, remove or update your SmartFrame images using our API tools.", "imageLink":"../images/api.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+            {"title":"pixel perfect images & retina screen support","content":"SmartFrame tecjnology automatically detects the size and resolution capabilty of the viewers device and serves the most appropriate image accordingly.", "imageLink":"../images/pixel_perfect.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+            {"title":"dynamic image resizing","content":"As browser windows are resized SmartFrame automatically recalculates and displays the most appropriate version of the image, ensuring the results are pixel perfect everytime.", "imageLink":"../images/resize.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+        ]},
         {"cards":[
             {"title":"embedding & sharing metrics","content":"SmartFrame's Embedding and Sharing Metrics let you see where your images are being displayed around the web and on social networks.", "imageLink":"../images/embed.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
             {"title":"viewing & traffic meters","content":"Viewing and Traffic Metrics let you find your most popular and engaging images, and see which are delivering the most traffic and from which sources.", "imageLink":"../images/tracking.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
             {"title":"security metrics","content":"Our Security Metrics will let you know how and where people are trying to download or steal your images.", "imageLink":"../images/security.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
             {"title":"content syndication control","content":"Syndicate with confidence, safe in the knowledge that you can withdraw or replace SmartFrame images at any time. You can even block or greenlight specific countries, websites and IP adresses.", "imageLink":"../images/syndication.png", "bottomLink": [{"text":"Get it now", "path": "#"}]}
-        ]}
+        ]},
+        {"cards":[
+            {"title":"customisable interactive overlay themes","content":"Choose from a selection of highly customizable overlay themes to mode closely match the look and feel of your site, brand or marketplace demographics.", "imageLink":"../images/themes.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+            {"title":"social network sharing options","content":"Our Content Delivery Network (CDN) delivers SmartFrame images to viewer at high speed and with low latency.", "imageLink":"../images/sharing.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+            {"title":"full screen views","content":"Our Content Delivery Network (CDN) delivers SmartFrame images to viewer at high speed and with low latency.", "imageLink":"../images/fullscreen.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+            {"title":"image zoom","content":"Our Content Delivery Network (CDN) delivers SmartFrame images to viewer at high speed and with low latency.", "imageLink":"../images/zoom.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+            {"title":"live image views","content":"Our Content Delivery Network (CDN) delivers SmartFrame images to viewer at high speed and with low latency.", "imageLink":"../images/live1.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+            {"title":"live image views","content":"Our Content Delivery Network (CDN) delivers SmartFrame images to viewer at high speed and with low latency.", "imageLink":"../images/live2.png", "bottomLink": [{"text":"Get it now", "path": "#"}]},
+        ]},
     ]};
 
     const sections = ((cardContent)=>{
