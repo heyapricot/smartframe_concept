@@ -18,7 +18,7 @@ const bootstrapComponents = (()=>{
                 let node = document.createElement('h5');
                 parentNode.appendChild(node);
                 ['card-title'].forEach((cssClass)=>{node.classList.toggle(cssClass)});
-                node.textContent = titleText;
+                node.textContent = titleText.replace(/\b\w/g, l => l.toUpperCase());
                 return node;
             })(titleText, node);
 
