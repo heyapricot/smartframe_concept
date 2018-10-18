@@ -12,40 +12,48 @@ const bootstrapComponents = (()=>{
     const Card = (cssClassArray = [], titleText = '', contentText = '', imgSrc = '', linkArray = []) => {
         let node = createComponent('card',cssClassArray).node;
         let body = ((titleText, contentText, imgSrc, parentNode)=>{
-            let node = createComponent('card-body',['text-center'],parentNode).node;
+            let node = createComponent('card-body',['d-flex','flex-column','justify-content-between','text-center'],parentNode).node;
 
             let title = ((titleText, parentNode)=>{
+                let container = document.createElement('div');
+                parentNode.appendChild(container);
                 let node = document.createElement('h5');
-                parentNode.appendChild(node);
+                container.appendChild(node);
                 ['card-title'].forEach((cssClass)=>{node.classList.toggle(cssClass)});
                 node.textContent = titleText.replace(/\b\w/g, l => l.toUpperCase());
-                return node;
+                return {container,node};
             })(titleText, node);
 
             let content = ((contentText,parentNode)=>{
+                let container = document.createElement('div');
+                parentNode.appendChild(container);
                 let node = document.createElement('p');
-                parentNode.appendChild(node);
+                container.appendChild(node);
                 ['card-text'].forEach((cssClass)=>{node.classList.toggle(cssClass)});
                 node.textContent = contentText;
-                return node;
+                return {container,node};
             })(contentText,node);
 
             let img = ((imgSrc, parentNode)=>{
+                let container = document.createElement('div');
+                parentNode.appendChild(container);
                 let node = document.createElement('img');
-                parentNode.appendChild(node);
+                container.appendChild(node);
                 ['img-fluid'].forEach((cssClass)=>{node.classList.toggle(cssClass)});
                 node.src = imgSrc;
-                return node;
+                return {container,node};
             })(imgSrc,node);
 
             let bottomLinks = ((linkArray, parentNode)=>{
                 let links = linkArray.map((link)=>{
+                    let container = document.createElement('div');
+                    parentNode.appendChild(container);
                     let node = document.createElement('a');
-                    parentNode.appendChild(node);
+                    container.appendChild(node);
                     ['card-link'].forEach((cssClass)=>{ node.classList.toggle(cssClass) });
                     node.textContent = link.text;
                     node.href = link.path;
-                    return node;
+                    return {container,node};
                 });
                 return {links}
             })(linkArray, node);

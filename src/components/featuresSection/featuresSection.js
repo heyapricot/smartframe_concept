@@ -61,9 +61,9 @@ const featuresSection = (()=>{
                         cssClassArray.forEach((cssClass)=>{ node.classList.toggle(cssClass) });
                         return node;
                     })(['fas', 'fa-check-circle']);
-                    bootstrapCard.body.node.insertBefore(icon,bootstrapCard.body.title);
-                    bootstrapCard.body.bottomLinks.links.forEach((linkNode)=>{linkNode.classList.toggle(cssClassArray[1])});
-                    bootstrapCard.body.content.classList.toggle('text-muted');
+                    bootstrapCard.body.node.insertBefore(icon,bootstrapCard.body.title.container);
+                    bootstrapCard.body.bottomLinks.links.forEach((linkObj)=>{linkObj.node.classList.toggle(cssClassArray[1])});
+                    bootstrapCard.body.content.node.classList.toggle('text-muted');
                     return bootstrapCard
                 })(cssClasses);
                 return card
