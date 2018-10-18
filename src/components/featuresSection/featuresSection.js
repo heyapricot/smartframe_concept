@@ -28,14 +28,13 @@ const featuresSection = (()=>{
         ]}
     ]};
 
-    const cards = ((cardContent)=>{
-        let mainObject = {"sections":[]};
-        cardContent.sections.forEach((section)=>{
-            let cardsHolder = {"cards":[]};
-            section.cards.forEach((card)=>{ cardsHolder.cards.push(bootstrap.Card(['border-0'],card.title,card.content, card.imageLink, card.bottomLink)) });
-            mainObject.sections.push(cardsHolder);
+    const sections = ((cardContent)=>{
+        return cardContent.sections.map((section)=>{
+            let cards = section.cards.map((cardContent)=>{
+                return bootstrap.Card(['border-0'],cardContent.title,cardContent.content, cardContent.imageLink, cardContent.bottomLink);
+            });
+            return {cards}
         });
-        return mainObject;
     })(cardContent);
 
     const cardDecks = ((sections, columnQuantity)=>{
@@ -45,7 +44,7 @@ const featuresSection = (()=>{
             decks.push(deck);
         });
         return decks
-    })(cards.sections,3);
+    })(sections,3);
 
     const init = (()=>{
         const setupNode = ((node)=>{
