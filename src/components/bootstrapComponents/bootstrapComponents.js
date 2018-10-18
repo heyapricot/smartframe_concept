@@ -39,14 +39,13 @@ const bootstrapComponents = (()=>{
             })(imgSrc,node);
 
             let bottomLinks = ((linkArray, parentNode)=>{
-                let links = [];
-                linkArray.forEach((link)=>{
+                let links = linkArray.map((link)=>{
                     let node = document.createElement('a');
                     parentNode.appendChild(node);
                     ['card-link'].forEach((cssClass)=>{ node.classList.toggle(cssClass) });
                     node.textContent = link.text;
                     node.href = link.path;
-                    links.push(node);
+                    return node;
                 });
                 return {links}
             })(linkArray, node);

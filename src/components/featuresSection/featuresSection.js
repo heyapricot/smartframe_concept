@@ -29,18 +29,21 @@ const featuresSection = (()=>{
     ]};
 
     const sections = ((cardContent)=>{
-        return cardContent.sections.map((section)=>{
+        return cardContent.sections.map((section,index)=>{
+            let textStyles = ['text-primary', 'text-success', 'text-danger', 'text-warning'];
+            let cssClasses = ['border-0', textStyles[index]];
             let cards = section.cards.map((cardContent)=>{
-                let card = (()=>{
-                    let bootstrapCard = bootstrap.Card(['border-0'],cardContent.title,cardContent.content, cardContent.imageLink, cardContent.bottomLink);
+                let card = ((cssClassArray)=>{
+                    let bootstrapCard = bootstrap.Card(cssClassArray,cardContent.title,cardContent.content, cardContent.imageLink, cardContent.bottomLink);
                     let icon = ((cssClassArray)=>{
                         let node = document.createElement('i');
                         cssClassArray.forEach((cssClass)=>{ node.classList.toggle(cssClass) });
                         return node;
                     })(['fas', 'fa-check-circle']);
                     bootstrapCard.body.node.insertBefore(icon,bootstrapCard.body.title);
+                    bootstrapCard.body.bottomLinks.links.forEach((linkNode)=>{linkNode.classList.toggle(cssClassArray[1])});
                     return bootstrapCard
-                })();
+                })(cssClasses);
                 return card
             });
             return {cards}
