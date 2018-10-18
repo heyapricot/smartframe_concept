@@ -9,7 +9,7 @@ const bootstrapComponents = (()=>{
         return {node};
     };
 
-    const Card = (cssClassArray = [], titleText = '', contentText = '', imgSrc = '') => {
+    const Card = (cssClassArray = [], titleText = '', contentText = '', imgSrc = '', linkArray = []) => {
         let node = createComponent('card',cssClassArray).node;
         let body = ((titleText, contentText, imgSrc, parentNode)=>{
             let node = createComponent('card-body',[],parentNode).node;
@@ -38,7 +38,20 @@ const bootstrapComponents = (()=>{
                 return node;
             })(imgSrc,node);
 
-            return {content, img, node, title}
+            let bottomLinks = ((linkArray, parentNode)=>{
+                let links = [];
+                linkArray.forEach((link)=>{
+                    let node = document.createElement('a');
+                    parentNode.appendChild(node);
+                    ['card-link'].forEach((cssClass)=>{ node.classList.toggle(cssClass) });
+                    node.textContent = link.text;
+                    node.href = link.path;
+                    links.push(node);
+                });
+                return {links}
+            })(linkArray, node);
+
+            return {content, bottomLinks, img, node, title}
         })(titleText,contentText,imgSrc, node);
 
         return {node,body}
