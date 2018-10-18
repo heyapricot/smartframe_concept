@@ -31,7 +31,17 @@ const featuresSection = (()=>{
     const sections = ((cardContent)=>{
         return cardContent.sections.map((section)=>{
             let cards = section.cards.map((cardContent)=>{
-                return bootstrap.Card(['border-0'],cardContent.title,cardContent.content, cardContent.imageLink, cardContent.bottomLink);
+                let card = (()=>{
+                    let bootstrapCard = bootstrap.Card(['border-0'],cardContent.title,cardContent.content, cardContent.imageLink, cardContent.bottomLink);
+                    let icon = ((cssClassArray)=>{
+                        let node = document.createElement('i');
+                        cssClassArray.forEach((cssClass)=>{ node.classList.toggle(cssClass) });
+                        return node;
+                    })(['fas', 'fa-check-circle']);
+                    bootstrapCard.body.node.insertBefore(icon,bootstrapCard.body.title);
+                    return bootstrapCard
+                })();
+                return card
             });
             return {cards}
         });
