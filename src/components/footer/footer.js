@@ -29,13 +29,28 @@ const footer = ((info)=>{
         let columns = ((columns, cssClasses)=>{
             columns.map((column, index)=>{
                 cssClasses.forEach((cssclass)=>{ column.node.classList.toggle(cssclass) });
+
                 let header = ((headerText, cssClasses, parentNode)=>{
                     let node = document.createElement('h6');
                     node.textContent = headerText.toUpperCase();
                     cssClasses.forEach((cssClass)=>{ node.classList.toggle(cssClass) });
                     parentNode.appendChild(node);
-                })(info.columns[index].header, ['text-primary'], column.node);
-                return {header}
+                })(info.columns[index].header, ['text-primary', 'mb-5'], column.node);
+
+                let links = ((links, cssClasses, parentNode)=>{
+                    return links.map((link)=>{
+                        return link.text.map((text)=>{
+                            let node = document.createElement('h6');
+                            cssClasses.forEach((cssClass)=>{ node.classList.toggle(cssClass) });
+                            parentNode.appendChild(node);
+                            node.textContent = text;
+                            node.href = link.href;
+                            return {node}
+                        })
+                    });
+                })(info.columns[index].links, ['text-muted'], column.node);
+
+                return {header, links}
             });
         })(row.columns,['text-center']);
 
