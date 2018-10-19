@@ -1,5 +1,6 @@
 const {headSection} = require('../src/components/headSection/headSection');
 const {featuresSection} = require('../src/components/featuresSection/featuresSection');
+const {footer} = require('../src/components/footer/footer');
 const {navbar} = require('../src/components/navbar/navbar');
 document.body.appendChild(navbar.render());
 let head = "It's all about your Audience";
@@ -8,3 +9,4 @@ headSection.setHeading(head, 0);
 headSection.setHeading(subHead, 1);
 document.body.appendChild(headSection.render());
 document.body.appendChild(featuresSection.node);
+document.body.appendChild(footer.node);
