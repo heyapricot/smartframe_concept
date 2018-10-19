@@ -16,6 +16,28 @@ let footerInfo = {"columns":[
              {"text":["SF Monetizer"], "href":"#"},
          ]
         },
+        {"header":"technology",
+            "links":[
+                {"text":["How it works"], "href":"#"},
+                {"text":["Integration"], "href":"#"},
+                {"text":["Glossary"], "href":"#"},
+                {"text":["Bespoke solutions"], "href":"#"},
+            ]
+        },
+        {"header":"support",
+            "links":[
+                {"text":["Support contact"], "href":"#"},
+            ]
+        },
+        {"header":"company",
+            "links":[
+                {"text":["About"], "href":"#"},
+                {"text":["Management"], "href":"#"},
+                {"text":["Investors"], "href":"#"},
+                {"text":["Contact"], "href":"#"},
+                {"text":["Partners"], "href":"#"},
+            ]
+        },
     ]};
 
 const footer = ((info)=>{
@@ -31,28 +53,44 @@ const footer = ((info)=>{
                 cssClasses.forEach((cssclass)=>{ column.node.classList.toggle(cssclass) });
 
                 let header = ((headerText, cssClasses, parentNode)=>{
-                    let node = document.createElement('h6');
-                    node.textContent = headerText.toUpperCase();
-                    cssClasses.forEach((cssClass)=>{ node.classList.toggle(cssClass) });
-                    parentNode.appendChild(node);
-                })(info.columns[index].header, ['text-primary', 'mb-5'], column.node);
-
-                let links = ((links, cssClasses, parentNode)=>{
-                    return links.map((link)=>{
-                        return link.text.map((text)=>{
+                    let holder = ((cssClasses,parentNode)=>{
+                        let node = document.createElement('div');
+                        cssClasses.forEach((cssClass)=>{ node.classList.toggle(cssClass) });
+                        parentNode.appendChild(node);
+                        let child = ((headerText, cssClasses, parentNode)=>{
                             let node = document.createElement('h6');
                             cssClasses.forEach((cssClass)=>{ node.classList.toggle(cssClass) });
+                            node.textContent = headerText.toUpperCase();
                             parentNode.appendChild(node);
-                            node.textContent = text;
-                            node.href = link.href;
-                            return {node}
-                        })
-                    });
+                        })(headerText, ['font-weight-bold'], node);
+                        return {child,node}
+                    })(cssClasses,parentNode);
+                    return {holder}
+                })(info.columns[index].header, ['text-primary', 'my-3'], column.node);
+
+                let links = ((links, cssClasses, parentNode)=>{
+                    let holder = ((cssClasses, parentNode)=>{
+                        let node = document.createElement('div');
+                        cssClasses.forEach((cssClass)=>{ node.classList.toggle(cssClass) });
+                        parentNode.appendChild(node);
+                        let linkNodes = ((links, parentNode)=>{
+                            return links.map((link)=>{
+                                return link.text.map((text)=>{
+                                    let node = document.createElement('h6');
+                                    parentNode.appendChild(node);
+                                    node.textContent = text;
+                                    node.href = link.href;
+                                    return {node}
+                                });
+                            });
+                        })(links, node);
+                    })(['text-muted'], parentNode);
+                    return {holder}
                 })(info.columns[index].links, ['text-muted'], column.node);
 
                 return {header, links}
             });
-        })(row.columns,['text-center']);
+        })(row.columns,['d-flex', 'flex-column']);
 
         return {columns,node,row}
 
