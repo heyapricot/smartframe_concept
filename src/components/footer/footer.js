@@ -17,7 +17,7 @@ const footer = (()=>{
             return rowArray;
         })(2,[1,5], node);
 
-        let col = ((row, cssClasses, titleText, subtitleText)=>{
+        let topCol = ((row, cssClasses, titleText, subtitleText)=>{
             let col = row.columns[0];
             let node = col.node;
             cssClasses.forEach((cssClass)=>{ node.classList.toggle(cssClass) });

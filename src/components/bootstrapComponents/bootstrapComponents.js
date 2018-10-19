@@ -67,13 +67,16 @@ const bootstrapComponents = (()=>{
     const Row = (columnQuantity, cssClassArray = [], parentNode = NaN) => {
         let cssClasses = cssClassArray;
         let node = createComponent('row',cssClasses, parentNode).node;
-        let columns = ((columnQuantity)=>{
+        let columns = ((columnQuantity, parentNode)=>{
             let columnArray = [];
             for(let i = 0; i < columnQuantity; i++){
-                columnArray.push(createComponent('col',[],node));
+                let node = document.createElement('div');
+                parentNode.appendChild(node);
+                ['col'].forEach((cssClass)=>{ node.classList.toggle(cssClass) });
+                columnArray.push({node});
             }
             return columnArray;
-        })(columnQuantity);
+        })(columnQuantity, node);
 
         let addColumns = (quantity)=>{
             for(let i = 0; i < quantity; i++){
