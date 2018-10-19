@@ -13,19 +13,41 @@ const footer = (()=>{
             let col = row.columns[0];
             let node = col.node;
             cssClasses.forEach((cssClass)=>{ node.classList.toggle(cssClass) });
-            let title = ((titleText, parentNode)=>{
-                let node = document.createElement('h1');
+            let textHolder = ((titleText, subtitleText, parentNode)=>{
+                let node = document.createElement('div');
                 parentNode.appendChild(node);
-                node.textContent = titleText;
-                return {node};
-            })(titleText, node);
-            let subtitle = ((subtitleText, parentNode)=>{
-                let node = document.createElement('h4');
+
+                let title = ((titleText, parentNode)=>{
+                    let node = document.createElement('h1');
+                    parentNode.appendChild(node);
+                    node.textContent = titleText;
+                    return {node};
+                })(titleText, node);
+
+                let subtitle = ((subtitleText, parentNode)=>{
+                    return subtitleText.map((textChunk)=>{
+                        let node = document.createElement('h4');
+                        parentNode.appendChild(node);
+                        node.textContent = textChunk;
+                        return {node};
+                    });
+                })(subtitleText, node);
+
+                return {node, subtitle, title}
+
+            })(titleText, subtitleText, node);
+
+            let button = ((buttonText, cssClasses, parentNode)=>{
+                let node = document.createElement('button');
+                node.type = 'button';
+                cssClasses.forEach((cssClass)=>{ node.classList.toggle(cssClass) });
+                node.textContent = buttonText.toUpperCase();
                 parentNode.appendChild(node);
-                node.textContent = subtitleText;
-                return {node};
-            })(subtitleText, node);
-        })(row, ['d-flex', 'flex-column', 'justify-content-center', 'text-center'], 'Contact us today', 'to discuss your unique needs with one of our products specialists.');
+            })('book a free demo', ['btn', 'btn-link', 'w-15', 'align-self-center'], node);
+
+            return {button,node,textHolder}
+
+        })(row, ['d-flex', 'flex-column', 'justify-content-around', 'text-center'], 'Contact us today', ['to discuss your unique needs', 'with one of our products specialists.']);
         return {node,row}
     })(['container'], node);
     return {node}
