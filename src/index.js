@@ -1,3 +1,4 @@
+const {contactSection} = require('../src/components/contactSection/contactSection');
 const {headSection} = require('../src/components/headSection/headSection');
 const {featuresSection} = require('../src/components/featuresSection/featuresSection');
 const {footer} = require('../src/components/footer/footer');
@@ -9,4 +10,5 @@ headSection.setHeading(head, 0);
 headSection.setHeading(subHead, 1);
 document.body.appendChild(headSection.render());
 document.body.appendChild(featuresSection.node);
+document.body.appendChild(contactSection.node);
 document.body.appendChild(footer.node);
