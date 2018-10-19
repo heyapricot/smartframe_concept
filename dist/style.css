@@ -1,3 +1,7 @@
 #headSection .row, footer .row:first-child {
     height: 30vh;
 }
+
+footer {
+    background: url('../images/contact-bg.png') #1f76c6 no-repeat center;
+}

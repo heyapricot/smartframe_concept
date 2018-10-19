@@ -13,10 +13,10 @@ const footer = (()=>{
             let col = row.columns[0];
             let node = col.node;
             cssClasses.forEach((cssClass)=>{ node.classList.toggle(cssClass) });
-            let textHolder = ((titleText, subtitleText, parentNode)=>{
+            let textHolder = ((titleText, subtitleText, cssClasses, parentNode)=>{
                 let node = document.createElement('div');
                 parentNode.appendChild(node);
-
+                cssClasses.forEach((cssClass)=>{ node.classList.toggle(cssClass) });
                 let title = ((titleText, parentNode)=>{
                     let node = document.createElement('h1');
                     parentNode.appendChild(node);
@@ -35,7 +35,7 @@ const footer = (()=>{
 
                 return {node, subtitle, title}
 
-            })(titleText, subtitleText, node);
+            })(titleText, subtitleText, ['text-light'] ,node);
 
             let button = ((buttonText, cssClasses, parentNode)=>{
                 let node = document.createElement('button');
@@ -43,7 +43,7 @@ const footer = (()=>{
                 cssClasses.forEach((cssClass)=>{ node.classList.toggle(cssClass) });
                 node.textContent = buttonText.toUpperCase();
                 parentNode.appendChild(node);
-            })('book a free demo', ['btn', 'btn-link', 'w-15', 'align-self-center'], node);
+            })('book a free demo', ['btn', 'btn-light', 'text-primary', 'w-15', 'align-self-center'], node);
 
             return {button,node,textHolder}
 
