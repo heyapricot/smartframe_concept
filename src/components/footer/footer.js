@@ -8,7 +8,15 @@ const footer = (()=>{
         let node = document.createElement('div');
         cssClassArray.forEach((cssClass)=>{node.classList.toggle(cssClass)});
         parentNode.appendChild(node);
-        let row = bootstrap.Row(1,[],node);
+        let rows = ((rowQuantity, columnQuantities, parentNode)=>{
+            let rowArray = [];
+            for(let i = 0; i < rowQuantity; i++){
+                let row = bootstrap.Row(columnQuantities[i],[],parentNode);
+                rowArray.push(row);
+            }
+            return rowArray;
+        })(2,[1,5], node);
+
         let col = ((row, cssClasses, titleText, subtitleText)=>{
             let col = row.columns[0];
             let node = col.node;
@@ -47,8 +55,9 @@ const footer = (()=>{
 
             return {button,node,textHolder}
 
-        })(row, ['d-flex', 'flex-column', 'justify-content-around', 'text-center'], 'Contact us today', ['to discuss your unique needs', 'with one of our products specialists.']);
-        return {node,row}
+        })(rows[0], ['d-flex', 'flex-column', 'justify-content-around', 'text-center'], 'Contact us today', ['to discuss your unique needs', 'with one of our products specialists.']);
+
+        return {node,rows}
     })(['container'], node);
     return {node}
 })();

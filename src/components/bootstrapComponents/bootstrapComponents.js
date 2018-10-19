@@ -73,7 +73,8 @@ const bootstrapComponents = (()=>{
                 columnArray.push(createComponent('col',[],node));
             }
             return columnArray;
-        })(1);
+        })(columnQuantity);
+
         let addColumns = (quantity)=>{
             for(let i = 0; i < quantity; i++){
                 columnArray.push(createComponent('col',[],node));
