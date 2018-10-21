@@ -29,7 +29,7 @@ const navbar = (()=>{
                 let image = new Image(width,height);
                 image.src = source;
                 return image;
-            })(272, 29, '../images/smartframe_logo.jpg');
+            })(272, 29, 'images/smartframe_logo.jpg');
             hyperlink.appendChild(logo);
             parentNode.appendChild(hyperlink);
         })(logoContainer);

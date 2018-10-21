@@ -1,0 +1,7 @@
+#headSection .row, #contact .row:first-child {
+    height: 30vh;
+}
+
+#contact .container:first-child{
+    background: url('../images/contact-bg.png') #1f76c6 no-repeat center;
+}
