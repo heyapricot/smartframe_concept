@@ -2,6 +2,6 @@
     height: 30vh;
 }
 
-#contact {
+#contact .container:first-child{
     background: url('../images/contact-bg.png') #1f76c6 no-repeat center;
 }
